@@ -1,5 +1,4 @@
 import React from 'react';
-import Animated from 'react-native-reanimated';
 import { StyleSheet, View, Text } from 'react-native';
 import { Button } from '../../components';
 
@@ -9,6 +8,7 @@ interface SubslideProps {
     last?: boolean;
     onPress: () => void
 }
+
 
 const Subslide = ({ subtitle, description, last, onPress }: SubslideProps) => {
     return (
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 44
+        padding: 44,
     },
     subtitle: {
         fontFamily: 'SFProText-Semibold',
