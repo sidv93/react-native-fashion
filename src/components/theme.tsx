@@ -1,17 +1,25 @@
-import { createText, BaseTheme } from "@shopify/restyle";
+import { createText, BaseTheme, createBox } from "@shopify/restyle";
 
 const theme: BaseTheme = {
     colors: {
         white: 'white',
         primary: '#2CB9B0',
         title: '#0C0D34',
-        body: 'rgba(12, 13, 52, 0.7)'
+        body: 'rgba(12, 13, 52, 0.7)',
+        grey: 'rgba(12, 13, 52, 0.05)',
+        slideGrey: '#F4F0EF'
     },
     spacing: {
         s: 8,
         m: 16,
         l: 24,
         xl: 40,
+    },
+    borderRadii: {
+        s: 8,
+        m: 16,
+        l: 24,
+        xl: 75,
     },
     breakpoints: {},
     textVariants: {
@@ -38,10 +46,16 @@ const theme: BaseTheme = {
             lineHeight: 24,
             fontFamily: 'SFProText-Regular',
             color: 'body'
+        },
+        button: {
+            fontSize: 16,
+            fontFamily: 'SFProText-Medium',
+            color: 'body'
         }
     }
 };
 
 export type Theme = typeof theme;
 export const Text = createText<Theme>();
+export const Box = createBox<Theme>();
 export default theme;

@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import { Text } from '../../components';
 
 interface SlideProps {
     title: string;
     right?: boolean;
-    picture?: number;
 }
 
 const { width, height } = Dimensions.get('window');
@@ -20,9 +19,6 @@ const Slide = ({ title, right, picture }: SlideProps) => {
     ]
     return (
         <View style={{ width }}>
-            <View style={styles.underlay}>
-                <Image source={picture} style={styles.picture} />
-            </View>
             <View style={[styles.titleContainer, {transform}]}>
                 <Text variant="hero">{title}</Text>
             </View>
@@ -37,13 +33,11 @@ const styles = StyleSheet.create({
     },
     underlay: {
         ...StyleSheet.absoluteFillObject,
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        alignItems: 'center'
     },
     picture: {
         ...StyleSheet.absoluteFillObject,
-        height: undefined,
-        width: undefined,
-        borderBottomRightRadius: 75
     },
     titleContainer: {
         height: 100,
