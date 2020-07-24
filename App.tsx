@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Onboarding, Welcome } from './src/authentication';
 import { LoadAssets, theme } from './src/components';
-import * as Font from 'expo-font';
+import { useFonts } from 'expo-font';
 import { AppLoading } from 'expo';
 import { ThemeProvider } from '@shopify/restyle';
 import { Routes } from './src/components/Routes';
@@ -25,6 +25,10 @@ const AuthenticationNavigator = () => {
 }
 
 export default function App() {
+  const [fontsLoaded] = useFonts(fonts);
+  if(fontsLoaded) {
+    return <AppLoading />
+  }
   return (
     <ThemeProvider {...{ theme }}>
       <LoadAssets {...{ fonts }}>
